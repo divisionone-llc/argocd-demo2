@@ -8,6 +8,9 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: nginx-logs
+  labels:
+    app: nginx
+    env: qa
   namespace: nginx-example
 spec:
   storageClassName: glusterfs
@@ -23,6 +26,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deploy
+  labels:
+    app: nginx
+    env: qa
   namespace: nginx-example
 spec:
   replicas: 1
@@ -55,6 +61,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx-svc
+  labels:
+    app: nginx
+    env: qa
   namespace: nginx-example
 spec:
   ports:
