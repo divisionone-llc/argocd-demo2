@@ -11,7 +11,6 @@ metadata:
   namespace: nginx-example
   labels:
     app: nginx
-    env: prod
 spec:
   storageClassName: glusterfs
   volumeMode: Filesystem
@@ -29,18 +28,15 @@ metadata:
   namespace: nginx-example
   labels:
     app: nginx
-    env: prod
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: nginx
-      env: prod
   template:
     metadata:
       labels:
         app: nginx
-        env: prod
     spec:
       volumes:
         - name: nginx-logs
@@ -62,7 +58,6 @@ kind: Service
 metadata:
   labels:
     app: nginx
-    env: prod
   name: nginx-svc
   namespace: nginx-example
 spec:
